@@ -2,7 +2,7 @@ output:
   logstash:
     enabled: true
     hosts:
-      - 192.168.1.129:5044
+      - /172.18.0.2:5044
     timeout: 15
     ssl:
       certificate_authorities:
