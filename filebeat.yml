@@ -1,0 +1,24 @@
+output:
+  logstash:
+    enabled: true
+    hosts:
+      - 172.18.0.2:5044
+    timeout: 15
+    ssl:
+      certificate_authorities:
+      - /etc/pki/tls/certs/logstash-beats.crt
+
+filebeat:
+  prospectors:
+    -
+      paths:
+        - /var/log/apache2/access_*.log
+      document_type: apache_access
+    -
+      paths:
+        - /var/log/squid3/access.log
+      document_type: squid_access
+    -
+      paths:
+          - /var/log/syslog
+      document_type: syslog
