@@ -17,7 +17,10 @@ FROM docker.elastic.co/beats/filebeat:6.1.2
 ### configure Filebeat
 
 # config file
-ADD filebeat.yml /usr/share/filebeat/filebeat.yml
+COPY filebeat.yml /usr/share/filebeat/filebeat.yml
+USER root
+RUN chown filebeat /usr/share/filebeat/filebeat.yml
+USER filebeat
 
 # CA cert
 RUN mkdir -p /etc/pki/tls/certs
