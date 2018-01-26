@@ -29,4 +29,5 @@ ADD logstash-beats.crt /etc/pki/tls/certs/logstash-beats.crt
 ###############################################################################
 
 ADD ./start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
 CMD [ "/usr/local/bin/start.sh" ]
